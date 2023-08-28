@@ -29,7 +29,8 @@ private RoleRepository roleRepository;
 		if(local !=null) {
 			System.out.println("User is alreadydy there !!");
 			
-			throw new Exception("User is already there");
+//			throw new Exception("User is already there");
+			local=null;
 		}
 		else {
 			for(UserRole ur : userRole) {

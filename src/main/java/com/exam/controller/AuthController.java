@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.exam.config.JwtHelper;
 import com.exam.model.JwtRequest;
 import com.exam.model.JwtResponse;
+import com.exam.model.User;
 import com.exam.services.impl.UserServiceImpl;
 
 
@@ -87,8 +88,11 @@ public class AuthController {
 			throw new Exception("Invalid credentials  "+e.getMessage());
 			
 		
-		
 	}
 
+	}
+	@GetMapping("/current-user")
+	public User getCurrentUser(Principal principal) {
+		return (User)this.userDetailsService.loadUserByUsername(principal.getName());
 	}
 }
