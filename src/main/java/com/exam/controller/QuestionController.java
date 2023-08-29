@@ -79,6 +79,25 @@ public class QuestionController {
 		return ResponseEntity.ok(list);
 	}
 	
+	@GetMapping("/quiz/all/{qId}")
+    public ResponseEntity<?> quizebyadmin(@PathVariable Long qId){
+		
+
+		
+		Quiz quiz=new Quiz();
+		quiz.setqId(qId);
+		
+		Set<Question> questions=this.questionService.getQuestionsOfQuiz(quiz);
+	//	List list=new ArrayList<>(questions);
+		
+		
+		
+	//	Collections.shuffle(list);
+		
+		
+		return ResponseEntity.ok(questions);
+	}
+	
 	
 	
 }
