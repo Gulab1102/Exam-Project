@@ -60,10 +60,10 @@ public class QuizController {
     }
     
     @GetMapping("/category/{cId}")
-    public List<Quiz> quizBycategory(@PathVariable Long qId){
+    public List<Quiz> quizBycategory(@PathVariable Long cId){
     	
     	Category category=new Category();
-    	category.setCid(qId);
+    	category.setCid(cId);
     	
     	return quizService.byCategory(category);
     	
